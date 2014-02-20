@@ -37,25 +37,28 @@ sub tick {
 	$bot->say(
 	who => "nickserv",
 	channel => "msg",
-	body => "IDENTIFY theunderground",
+	body => "IDENTIFY password", #need to fill in password
 	address => "msg");
 	return 0;
 }
 	
-	
+#The said function is called for every line in chat
 sub said {
+	
+#first only look at the body of the message
   my ($self, $message) = @_;
-  my $out;
-  my $address  = $message->{address};
-  my $body = $message->{body};
-  my $said = $message->{who};
+  my $body = $message->{body}; 
   
-  #check if current line is command '.'
+  
+  #if current line is command '.' --> get the rest of the msg info
   if (substr($body,0,1) eq '.') {
-	  my $strip = substr($body,1);
-	  my $extra = substr($strip,(index($strip,' ')+1));
-	  my $cmd = (split(/\s/, $strip, 2))[0];
-	  my $timer = Time::HiRes::gettimeofday();
+	my $said = $message->{who};
+	my $address  = $message->{address};
+	my $strip = substr($body,1);
+	my $extra = substr($strip,(index($strip,' ')+1));
+	my $cmd = (split(/\s/, $strip, 2))[0];
+
+	my $timer = Time::HiRes::gettimeofday();
 	  #call validate to run the command
 	  validate($cmd,$said,$extra,$timer,$address);
     }
