@@ -1,0 +1,54 @@
+################################################
+#  Setup perl environment to run fitbot on your
+#  machine.
+#
+################################################
+
+
+1) Install strawberry perl on your machine:
+
+http://strawberryperl.com/
+
+
+
+2) Install all of the modules that fitbot leverages. 
+	- You can see the modules fitbot uses because they are imported with the 'use' statement in the code. 
+	- You can search all Perl modules at www.cpan.org
+	- The easiest way to install a module is not from the website, but through command line (http://www.cpan.org/modules/INSTALL.html).
+		a) Open command line (cmd.exe) on your machine.
+		b) From the command line use the command 'cpan' to install the modules needed.
+		c) Here are all the modules (I think) used by fitbot. Run these commands. 
+			cpan Time::localtime
+			cpan Bot::BasicBot
+			cpan XML::LibXML
+			cpan POSIX
+			cpan DBI
+			cpan LWP::UserAgent
+			
+			
+
+3) Download the 3 fitbot files:
+	- fitbot.pl 	- Main bot functionality.
+	- sql.pl 		  - Code that interacts with the database through the DBI module.
+	- pastebin.pl	- Code that generates text url based on tny.cz API
+
+	
+	
+4) Put the 3 Perl files in the same directory on your computer. 
+
+
+
+5) In fitbot.pl, change line 16 to the irc channel that you'd like to go to.
+
+
+
+6) In fitbot.pl, change line 28 to give fitbot a different name.
+
+
+
+7) To execute a perl program you can do it through command line with the command(perl fitbot.pl) or just double click fitbot.pl
+
+
+
+
+
